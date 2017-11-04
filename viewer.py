@@ -32,37 +32,37 @@ class Viewer:
               '            Task added!               ')
         time.sleep(2)
 
-    def add_task_fail_screen(self, error_msg='Invalid inputs'):
+    def error_screen(self, error_msg='Invalid input'):
         print('========== Task Manager ==========\n\n',
               '            Error: ' + error_msg)
         time.sleep(2)
 
-    def modify_task_screen(self, task):
+    def modify_task_screen(self, task_name, description):
         print('========== Task Manager ==========\n\n',
-              'Task name: ' + task.name + '\n',
-              'Description: ' + task.description + '\n\n',
+              'Task name: ' + task_name + '\n',
+              'Description: ' + description + '\n\n',
               'Choose the action: \n',
               '(1) Change name \n',
               '(2) Change description \n',
               '(3) Change name and description \n',
               '(0) Cancel \n')
 
-    def change_name_screen(self, task):
+    def change_name_screen(self, task_name):
         print('========== Task Manager ==========\n\n',
-              'Task name: ' + task.name + '\n\n')
-        name = 'Enter new task name: '
-        return name
+              'Task name: ' + task_name + '\n\n')
+        new_name = 'Enter new task name: '
+        return new_name
 
-    def change_description_screen(self, task):
+    def change_description_screen(self, description):
         print('========== Task Manager ==========\n\n',
-              'Task description: ' + task.description + '\n\n')
-        description = 'Enter new task description: '
-        return description
+              'Task description: ' + description + '\n\n')
+        new_description = 'Enter new task description: '
+        return new_description
 
-    def change_name_and_description_screen(self, task):
+    def change_name_and_description_screen(self, task_name, description):
         print('========== Task Manager ==========\n\n',
-              'Task name: ' + task.name + '\n\n')
-        name = 'Enter new task name: '
-        print('Task description: ' + task.description + '\n\n')
-        description = 'Enter new task description: '
-        return (name, description)
+              'Task name: ' + task_name + '\n\n')
+        new_name = 'Enter new task name: '
+        print('Task description: ' + description + '\n\n')
+        new_description = 'Enter new task description: '
+        return (new_name, new_description)
