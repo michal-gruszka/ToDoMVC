@@ -27,9 +27,9 @@ class Viewer:
         description = input('Enter task description: ')
         return (name, description)
 
-    def add_task_success_screen(self):
+    def message_screen(self, msg):
         print('========== Task Manager ==========\n\n',
-              '            Task added!               ')
+              '            ' + msg)
         time.sleep(2)
 
     def error_screen(self, error_msg='Invalid input'):
@@ -66,3 +66,27 @@ class Viewer:
         print('Task description: ' + description + '\n\n')
         new_description = 'Enter new task description: '
         return (new_name, new_description)
+
+    def delete_task_screen(self, tasks_str):
+        print('========== Task Manager ==========\n\n' +
+              tasks_str + '\n')
+        task_id = input('Choose task to be deleted: ')
+        return task_id
+
+    def mark_task_screen(self, tasks_str):
+        print('========== Task Manager ==========\n\n' +
+              tasks_str + '\n')
+        task_id = input('Choose task to be marked: ')
+        return task_id
+
+    def display_tasks_screen(self, tasks_str):
+        print('========== Task Manager ==========\n\n' +
+              tasks_str + '\n')
+        input('   -- Press any key to return -- ')
+
+    def display_specific_task_screen(self, id, task_name, description):
+        print('========== Task Manager ==========\n\n' +
+              'Task id: ' + id + '\n' +
+              'Name: ' + task_name + '\n' +
+              'Description: ' + description + '\n\n')
+        input('   -- Press any key to return -- ')
