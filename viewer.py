@@ -46,3 +46,23 @@ class Viewer:
               '(2) Change description \n',
               '(3) Change name and description \n',
               '(0) Cancel \n')
+
+    def change_name_screen(self, task):
+        print('========== Task Manager ==========\n\n',
+              'Task name: ' + task.name + '\n\n')
+        name = 'Enter new task name: '
+        return name
+
+    def change_description_screen(self, task):
+        print('========== Task Manager ==========\n\n',
+              'Task description: ' + task.description + '\n\n')
+        description = 'Enter new task description: '
+        return description
+
+    def change_name_and_description_screen(self, task):
+        print('========== Task Manager ==========\n\n',
+              'Task name: ' + task.name + '\n\n')
+        name = 'Enter new task name: '
+        print('Task description: ' + task.description + '\n\n')
+        description = 'Enter new task description: '
+        return (name, description)
