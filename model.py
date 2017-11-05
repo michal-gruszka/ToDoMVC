@@ -33,6 +33,9 @@ class Model:
         task = self.get_task(index)
         task.toggle_is_done()
 
+    def archive_tasks(self):
+        self._tasks = [t for t in self._tasks if not t.get_is_done()]
+
     def __str__(self):
         if len(self._tasks) == 0:
             return '-- The list is empty --'
@@ -40,4 +43,5 @@ class Model:
         i = 0
         for task in self._tasks:
             string += '({}) [{}] {}\n'.format(i, 'X' if task.get_is_done() else ' ', task.get_name())
+            i += 1
         return string

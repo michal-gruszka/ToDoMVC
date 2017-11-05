@@ -19,6 +19,7 @@ class View:
               '(4) Mark/unmark task as done\n',
               '(5) Display all tasks\n',
               '(6) Display task details\n',
+              '(7) Archive done tasks\n',
               '(0) Exit\n\n')
         option = input('Choose option: ')
         return option
