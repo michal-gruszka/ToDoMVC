@@ -1,4 +1,5 @@
 from task import Task
+import os.path
 
 
 class Model:
@@ -36,6 +37,25 @@ class Model:
     def archive_tasks(self):
         self._tasks = [t for t in self._tasks if not t.get_is_done()]
 
+    def save_to_file(self, filename='tasks.csv'):
+        with open(filename, 'w') as f:
+            for task in self._tasks:
+                line = '{},{},{}\n'.format(task.get_is_done(), task.get_name(), task.get_description())
+                f.write(line)
+    
+    def load_from_file(self, filename='tasks.csv'):
+        if os.path.isfile(filename):
+            tasks = []
+            with open(filename, 'r') as f:
+                for line in f:
+                    is_done, name, description = line.rstrip('\n').split(',')
+                    task = Task(name)
+                    task.set_description(description)
+                    if is_done == 'True':
+                        task.toggle_is_done()
+                    tasks.append(task)
+                self._tasks = tasks
+            
     def __str__(self):
         if len(self._tasks) == 0:
             return '-- The list is empty --'

@@ -11,6 +11,7 @@ class Controller:
         self.view = view
 
     def start_program(self):
+        self.model.load_from_file()
         self.view.welcome_screen()
         while True:
             option = self.view.menu_screen()
@@ -138,12 +139,13 @@ class Controller:
         else:
             self.view.display_task_details_screen(task_index, chosen_task.get_is_done(),
                                                   chosen_task.get_name(), chosen_task.get_description())
-                                                  
+
     def handle_archive_tasks(self):
         self.model.archive_tasks()
         self.view.message_screen('Tasks archived!')
 
     def handle_exit(self):
+        self.model.save_to_file()
         self.view.message_screen('            Goodbye!')
         os.system('clear')
         exit()
