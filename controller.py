@@ -1,7 +1,7 @@
 from model import Model
 from view import View
 from task import Task
-
+import os
 
 class Controller:
 
@@ -18,16 +18,15 @@ class Controller:
             elif option == '2':  # Modify task
                 self.handle_modify_task()
             elif option == '3':  # Delete task
-                pass
+                self.handle_delete_task()
             elif option == '4':  # Mark task as done
                 pass
             elif option == '5':  # Display all tasks
                 self.handle_display_tasks()
             elif option == '6':  # Display task details
                 pass
-            elif option == '0':
-                self.view.message_screen('Goodbye!')
-                exit()
+            elif option == '0':  # Exit
+                self.handle_exit()
 
     def handle_add_task(self):
         name, description = self.view.add_task_screen()
@@ -88,10 +87,32 @@ class Controller:
                 break
 
     def handle_delete_task(self):
-        pass
+        if len(self.model.tasks) == 0:
+            self.view.message_screen('There are no tasks!')
+            return
+        tasks_str = self.model.__str__()
+        task_index = self.view.delete_task_screen(tasks_str)
+        try:
+            task_index = int(task_index)
+            self.model.delete_task(task_index)
+        except (TypeError, ValueError, IndexError) as e:
+            self.view.error_screen('Invalid index value!')
+        else:
+            self.view.message_screen('Task deleted!')
 
     def handle_mark_as_done(self):
-        pass
+        if len(self.model.tasks) == 0:
+            self.view.message_screen('There are no tasks!')
+            return
+        tasks_str = self.model.__str__()
+        task_index = self.view.mark_task_screen(tasks_str)
+        try:
+            task_index = int(task_index)
+            self.model.mark_task_as_done(task_index)
+        except (TypeError, ValueError, IndexError) as e:
+            self.view.error_screen('Invalid index value!')
+        else:
+            self.view.message_screen('Task marked!')
 
     def handle_display_tasks(self):
         tasks_str = self.model.__str__()
@@ -99,3 +120,8 @@ class Controller:
 
     def handle_display_task_details(self):
         pass
+
+    def handle_exit(self):
+        self.view.message_screen('            Goodbye!')
+        os.system('clear')
+        exit()
