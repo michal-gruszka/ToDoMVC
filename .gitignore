@@ -1,3 +1,6 @@
+# My temporary file for small tests
+temp.py
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
