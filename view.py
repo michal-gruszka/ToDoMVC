@@ -6,7 +6,8 @@ class View:
 
     def welcome_screen(self):
         os.system('clear')
-        print('\n      Welcome!      \n')
+        print('========== Task Manager ==========\n\n',
+              '             Welcome!\n')
         time.sleep(1.5)
     
     def menu_screen(self):
@@ -55,9 +56,7 @@ class View:
         return option
 
     def modify_task_screen(self, tasks_str):
-        os.system('clear')
-        print('========== Task Manager ==========\n\n' +
-              tasks_str + '\n')
+        self._print_tasks_choice(tasks_str)
         task_id = input('Choose task to be modified: ')
         return task_id
 
@@ -85,23 +84,17 @@ class View:
         return (new_name, new_description)
 
     def delete_task_screen(self, tasks_str):
-        os.system('clear')
-        print('========== Task Manager ==========\n\n' +
-              tasks_str + '\n')
+        self._print_tasks_choice(tasks_str)
         task_id = input('Choose task to be deleted: ')
         return task_id
 
     def mark_task_screen(self, tasks_str):
-        os.system('clear')
-        print('========== Task Manager ==========\n\n' +
-              tasks_str + '\n')
+        self._print_tasks_choice(tasks_str)
         task_id = input('Choose task to be marked: ')
         return task_id
 
     def display_tasks_screen(self, tasks_str):
-        os.system('clear')
-        print('========== Task Manager ==========\n\n' +
-              tasks_str + '\n')
+        self._print_tasks_choice(tasks_str)
         input('   -- Press Enter to return -- \n')
 
     def display_specific_task_screen(self, id, task_name, description):
@@ -111,3 +104,8 @@ class View:
               'Name: ' + task_name + '\n' +
               'Description: ' + description + '\n\n')
         input('   -- Press Enter to return -- \n')
+
+    def _print_tasks_choice(self, tasks_str):
+        os.system('clear')
+        print('========== Task Manager ==========\n\n' +
+              tasks_str + '\n')
