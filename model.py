@@ -3,7 +3,8 @@ import os.path
 
 
 class Model:
-
+    """ Class representing tasks database. """
+    
     def __init__(self):
         self._tasks = []
 

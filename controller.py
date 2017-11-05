@@ -5,7 +5,8 @@ import os
 
 
 class Controller:
-
+    """ Class containing business logic and communication with View and Model. """
+    
     def __init__(self, model, view):
         self.model = model
         self.view = view

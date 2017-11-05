@@ -3,7 +3,8 @@ import time
 
 
 class View:
-
+    """ Class responsible for user interface and taking user input. """
+    
     def welcome_screen(self):
         os.system('clear')
         print('========== Task Manager ==========\n\n',
