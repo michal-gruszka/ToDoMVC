@@ -41,7 +41,7 @@ class View:
               'Error: ' + error_msg)
         input('\n    -- Press Enter to continue --   \n')
 
-    def modify_task_screen(self, task_name, description):
+    def modify_task_choice_screen(self, task_name, description):
         os.system('clear')
         print('========== Task Manager ==========\n\n',
               'Task name: ' + task_name + '\n',
@@ -53,6 +53,13 @@ class View:
               '(0) Cancel \n')
         option = input('Choose option: ')
         return option
+
+    def modify_task_screen(self, tasks_str):
+        os.system('clear')
+        print('========== Task Manager ==========\n\n' +
+              tasks_str + '\n')
+        task_id = input('Choose task to be modified: ')
+        return task_id
 
     def change_name_screen(self, task_name):
         os.system('clear')
