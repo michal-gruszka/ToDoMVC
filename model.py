@@ -28,5 +28,5 @@ class Model:
         string = ''
         i = 0
         for task in self.tasks:
-            string += '({}) {}: {}\n'.format(i, task.name, task.description)
+            string += '({}) {}: {}\n'.format(i, task.get_name(), task.get_description())
         return string

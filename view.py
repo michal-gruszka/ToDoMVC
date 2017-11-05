@@ -7,7 +7,7 @@ class View:
     def welcome_screen(self):
         os.system('clear')
         print('\n      Welcome!      \n')
-        time.sleep(2)
+        time.sleep(1.5)
     
     def menu_screen(self):
         os.system('clear')
@@ -32,13 +32,13 @@ class View:
     def message_screen(self, msg):
         os.system('clear')
         print('========== Task Manager ==========\n\n',
-              '            ' + msg)
-        time.sleep(2)
+              msg)
+        time.sleep(1.5)
 
     def error_screen(self, error_msg='Invalid input'):
         os.system('clear')
         print('========== Task Manager ==========\n\n',
-              '            Error: ' + error_msg)
+              'Error: ' + error_msg)
         input('\n    -- Press Enter to continue --   \n')
 
     def modify_task_screen(self, task_name, description):
