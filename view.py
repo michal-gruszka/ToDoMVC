@@ -16,7 +16,7 @@ class View:
               '(1) Add task\n',
               '(2) Modify task\n',
               '(3) Delete task\n',
-              '(4) Mark task as done\n',
+              '(4) Mark/unmark task as done\n',
               '(5) Display all tasks\n',
               '(6) Display task details\n',
               '(0) Exit\n\n')
@@ -90,17 +90,23 @@ class View:
 
     def mark_task_screen(self, tasks_str):
         self._print_tasks_choice(tasks_str)
-        task_id = input('Choose task to be marked: ')
+        task_id = input('Choose task to mark/unmark: ')
         return task_id
 
     def display_tasks_screen(self, tasks_str):
         self._print_tasks_choice(tasks_str)
         input('   -- Press Enter to return -- \n')
 
-    def display_specific_task_screen(self, id, task_name, description):
+    def choose_task_for_details_screen(self, tasks_str):
+        self._print_tasks_choice(tasks_str)
+        task_id = input('Choose task to see details: ')
+        return task_id
+
+    def display_task_details_screen(self, id, is_done, task_name, description):
         os.system('clear')
         print('========== Task Manager ==========\n\n' +
-              'Task id: ' + id + '\n' +
+              'Task id: ' + str(id) + '\n' +
+              'Done: ' + str(is_done) + '\n' +
               'Name: ' + task_name + '\n' +
               'Description: ' + description + '\n\n')
         input('   -- Press Enter to return -- \n')
