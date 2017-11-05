@@ -19,8 +19,9 @@ class View:
               '(5) Display all tasks\n',
               '(6) Display task details\n',
               '(0) Exit\n\n')
-        return option = input('Choose option: ')
-
+        option = input('Choose option: ')
+        return option
+    
     def add_task_screen(self):
         os.system('clear')
         print('========== Task Manager ==========\n\n')
@@ -47,24 +48,27 @@ class View:
               '(2) Change description \n',
               '(3) Change name and description \n',
               '(0) Cancel \n')
-        return option = input('Choose option: ')
+        option = input('Choose option: ')
+        return option
 
     def change_name_screen(self, task_name):
         print('========== Task Manager ==========\n\n',
               'Task name: ' + task_name + '\n\n')
-        return new_name = 'Enter new task name: '
+        new_name = input('Enter new task name: ')
+        return new_name
 
     def change_description_screen(self, description):
         print('========== Task Manager ==========\n\n',
               'Task description: ' + description + '\n\n')
-        return new_description = 'Enter new task description: '
+        new_description = input('Enter new task description: ')
+        return new_description
 
     def change_name_and_description_screen(self, task_name, description):
         print('========== Task Manager ==========\n\n',
               'Task name: ' + task_name + '\n\n')
         new_name = 'Enter new task name: '
         print('Task description: ' + description + '\n\n')
-        new_description = 'Enter new task description: '
+        new_description = input('Enter new task description: ')
         return (new_name, new_description)
 
     def delete_task_screen(self, tasks_str):
