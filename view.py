@@ -36,7 +36,7 @@ class View:
     def error_screen(self, error_msg='Invalid input'):
         print('========== Task Manager ==========\n\n',
               '            Error: ' + error_msg)
-        time.sleep(2)
+        input('\n    -- Press Enter to continue --   \n')
 
     def modify_task_screen(self, task_name, description):
         print('========== Task Manager ==========\n\n',
@@ -82,11 +82,11 @@ class View:
     def display_tasks_screen(self, tasks_str):
         print('========== Task Manager ==========\n\n' +
               tasks_str + '\n')
-        input('   -- Press any key to return -- ')
+        input('   -- Press Enter to return -- \n')
 
     def display_specific_task_screen(self, id, task_name, description):
         print('========== Task Manager ==========\n\n' +
               'Task id: ' + id + '\n' +
               'Name: ' + task_name + '\n' +
               'Description: ' + description + '\n\n')
-        input('   -- Press any key to return -- ')
+        input('   -- Press Enter to return -- \n')
