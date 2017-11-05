@@ -6,7 +6,7 @@ import os
 
 class Controller:
     """ Class containing business logic and communication with View and Model. """
-    
+
     def __init__(self, model, view):
         self.model = model
         self.view = view
@@ -16,21 +16,21 @@ class Controller:
         self.view.welcome_screen()
         while True:
             option = self.view.menu_screen()
-            if option == '1':  # Add task
+            if option == '1':
                 self.handle_add_task()
-            elif option == '2':  # Modify task
+            elif option == '2':
                 self.handle_modify_task()
-            elif option == '3':  # Delete task
+            elif option == '3':
                 self.handle_delete_task()
-            elif option == '4':  # Mark task as done
+            elif option == '4':
                 self.handle_mark_unmark()
-            elif option == '5':  # Display all tasks
+            elif option == '5':
                 self.handle_display_tasks()
-            elif option == '6':  # Display task details
+            elif option == '6':
                 self.handle_display_task_details()
-            elif option == '7':  # Archive done tasks
+            elif option == '7':
                 self.handle_archive_tasks()
-            elif option == '0':  # Exit
+            elif option == '0':
                 self.handle_exit()
 
     def handle_add_task(self):
@@ -59,16 +59,12 @@ class Controller:
 
         while True:
             option = self.view.modify_task_choice_screen(task.get_name(), task.get_description())
-
-            if option == '1':  # Change name
+            if option == '1':
                 self.handle_change_name(task)
-            
-            elif option == '2':  # Change description
+            elif option == '2':
                 self.handle_change_description(task)
-            
-            elif option == '3':  # Change name and description
+            elif option == '3':
                 self.handle_change_name_and_description(task)
-
             elif option == '0':
                 break
 
