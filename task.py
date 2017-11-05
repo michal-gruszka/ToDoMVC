@@ -35,4 +35,4 @@ class Task:
         return self._is_done
 
     def __str__(self):
-        return '{} {}: {}'.format('[X] ' if self._is_done else '[ ] ', self._name, self._description)
+        return '[{}] {}: {}'.format('X' if self._is_done else ' ', self._name, self._description)
