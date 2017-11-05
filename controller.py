@@ -60,35 +60,44 @@ class Controller:
             option = self.view.modify_task_choice_screen(task.get_name(), task.get_description())
 
             if option == '1':  # Change name
-                new_name = self.view.change_name_screen(task.get_name())
-                try:
-                    task.set_name(new_name)
-                except (TypeError, ValueError) as e:
-                    self.view.error_screen(str(e))
-                else:
-                    self.view.message_screen('Task name changed!')
+                self.handle_change_name(task)
             
             elif option == '2':  # Change description
-                new_desc = self.view.change_description_screen(task.get_description())
-                try:
-                    task.set_description(new_desc)
-                except (TypeError, ValueError) as e:
-                    self.view.error_screen(str(e))
-                else:
-                    self.view.message_screen('Task description changed!')
+                self.handle_change_description(task)
             
             elif option == '3':  # Change name and description
-                new_name = self.view.change_name_and_description_screen(task.get_name(), task.get_description())
-                try:
-                    task.set_name(new_name)
-                    task.set_description(new_desc)
-                except (TypeError, ValueError) as e:
-                    self.view.error_screen(str(e))
-                else:
-                    self.view.message_screen('Task name and description changed!')
+                self.handle_change_name_and_description(task)
 
             elif option == '0':
                 break
+
+    def handle_change_name(self, task):
+        new_name = self.view.change_name_screen(task.get_name())
+        try:
+            task.set_name(new_name)
+        except (TypeError, ValueError) as e:
+            self.view.error_screen(str(e))
+        else:
+            self.view.message_screen('Task name changed!')
+    
+    def handle_change_description(self, task):
+        new_desc = self.view.change_description_screen(task.get_description())
+        try:
+            task.set_description(new_desc)
+        except (TypeError, ValueError) as e:
+            self.view.error_screen(str(e))
+        else:
+            self.view.message_screen('Task description changed!')
+
+    def handle_change_name_and_description(self, task):
+        new_name = self.view.change_name_and_description_screen(task.get_name(), task.get_description())
+        try:
+            task.set_name(new_name)
+            task.set_description(new_desc)
+        except (TypeError, ValueError) as e:
+            self.view.error_screen(str(e))
+        else:
+            self.view.message_screen('Task name and description changed!')
 
     def handle_delete_task(self):
         if self.model.has_no_tasks():
