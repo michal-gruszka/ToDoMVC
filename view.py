@@ -21,7 +21,7 @@ class View:
               '(0) Exit\n\n')
         option = input('Choose option: ')
         return option
-    
+
     def add_task_screen(self):
         os.system('clear')
         print('========== Task Manager ==========\n\n')
@@ -30,16 +30,19 @@ class View:
         return (name, description)
 
     def message_screen(self, msg):
+        os.system('clear')
         print('========== Task Manager ==========\n\n',
               '            ' + msg)
         time.sleep(2)
 
     def error_screen(self, error_msg='Invalid input'):
+        os.system('clear')
         print('========== Task Manager ==========\n\n',
               '            Error: ' + error_msg)
         input('\n    -- Press Enter to continue --   \n')
 
     def modify_task_screen(self, task_name, description):
+        os.system('clear')
         print('========== Task Manager ==========\n\n',
               'Task name: ' + task_name + '\n',
               'Description: ' + description + '\n\n',
@@ -52,18 +55,21 @@ class View:
         return option
 
     def change_name_screen(self, task_name):
+        os.system('clear')
         print('========== Task Manager ==========\n\n',
               'Task name: ' + task_name + '\n\n')
         new_name = input('Enter new task name: ')
         return new_name
 
     def change_description_screen(self, description):
+        os.system('clear')
         print('========== Task Manager ==========\n\n',
               'Task description: ' + description + '\n\n')
         new_description = input('Enter new task description: ')
         return new_description
 
     def change_name_and_description_screen(self, task_name, description):
+        os.system('clear')
         print('========== Task Manager ==========\n\n',
               'Task name: ' + task_name + '\n\n')
         new_name = 'Enter new task name: '
@@ -72,23 +78,27 @@ class View:
         return (new_name, new_description)
 
     def delete_task_screen(self, tasks_str):
+        os.system('clear')
         print('========== Task Manager ==========\n\n' +
               tasks_str + '\n')
         task_id = input('Choose task to be deleted: ')
         return task_id
 
     def mark_task_screen(self, tasks_str):
+        os.system('clear')
         print('========== Task Manager ==========\n\n' +
               tasks_str + '\n')
         task_id = input('Choose task to be marked: ')
         return task_id
 
     def display_tasks_screen(self, tasks_str):
+        os.system('clear')
         print('========== Task Manager ==========\n\n' +
               tasks_str + '\n')
         input('   -- Press Enter to return -- \n')
 
     def display_specific_task_screen(self, id, task_name, description):
+        os.system('clear')
         print('========== Task Manager ==========\n\n' +
               'Task id: ' + id + '\n' +
               'Name: ' + task_name + '\n' +
