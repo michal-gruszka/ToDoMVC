@@ -52,7 +52,7 @@ class View:
               '(1) Change name \n',
               '(2) Change description \n',
               '(3) Change name and description \n',
-              '(0) Cancel \n')
+              '(0) Return \n')
         option = input('Choose option: ')
         return option
 
